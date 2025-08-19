@@ -1,0 +1,75 @@
+:root {
+  --maxw: 1024px;
+  --minw: 360px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.5; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: var(--maxw);
+  min-width: var(--minw);
+  padding: 16px;
+}
+
+.sidebar {
+  border-right: 1px solid #e8e8e8;
+  padding-right: 8px;
+
+  .menuItem {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #222;
+    margin-bottom: 4px;
+
+    &.active {
+      background: #f2f2f2;
+      font-weight: 600;
+    }
+  }
+}
+
+.content { padding: 0 8px; }
+
+.state, .error { padding: 16px; }
+
+.cocktailList { display: grid; gap: 16px; }
+
+.card {
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.cardHeader {
+  display: flex; gap: 16px; align-items: flex-start; justify-content: space-between;
+
+  .title { margin: 0; }
+  .thumb { width: 200px; height: 200px; object-fit: cover; border: 1px solid #ccc; border-radius: 8px; }
+}
+
+.meta > div { margin-bottom: 4px; }
+
+.ingredients {
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { display: grid; grid-template-columns: 120px 1fr; gap: 8px; padding: 2px 0; }
+  .measure { opacity: .8; }
+}
+
+.notFound { padding: 24px; text-align: center; }
+
+@media (max-width: 720px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-right: 0; padding-right: 0; }
+  .cardHeader { flex-direction: column; align-items: center; }
+  .ingredients li { grid-template-columns: 1fr; }
+}

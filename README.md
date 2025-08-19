@@ -1,1 +1,3 @@
-# Cocktails test
+- Использовал RTK Query кэш из коробки.
+- Vite → быстрее, чем webpack.
+- eslint и rettier для читаемости
